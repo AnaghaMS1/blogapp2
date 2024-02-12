@@ -1,10 +1,37 @@
 import 'package:blogapp2/pages/signup.dart';
+import 'package:blogapp2/service/postservice.dart';
 import 'package:flutter/material.dart';
 
-class login extends StatelessWidget {
+class login extends StatefulWidget {
   const login({super.key});
 
   @override
+  State<login> createState() => _loginState();
+}
+
+class _loginState extends State<login> {
+  @override
+
+  TextEditingController emailid =new TextEditingController();
+
+  TextEditingController password=new TextEditingController();
+
+  void SendValuetoApi() async
+  {
+    final response =await PostApiService().loginApi(emailid.text, password.text);
+    if (response["status"] == "success") {
+
+      print("Login Successfully");
+
+    }
+    else if (response["status"] == "invalid user") {
+      print("invalid user ");
+    }
+    else{
+       print("Invalid Password")
+    }
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
@@ -28,9 +55,7 @@ class login extends StatelessWidget {
               ),
 
             ),
-            ElevatedButton(onPressed: (){
-              
-            }, child: Text("Login")),
+            ElevatedButton(onPressed: SendValuetoApi, child: Text("Login")),
             SizedBox(height: 10,),
             ElevatedButton(onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=>signup()));
