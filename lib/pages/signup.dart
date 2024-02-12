@@ -12,6 +12,42 @@ class signup extends StatelessWidget {
       body: Container(
         child: Column(
           children: [
+            Text("Emailid"),
+            TextField(
+              decoration: InputDecoration(
+                  hintText: "emailid"
+              ),
+
+            ),
+            SizedBox(height: 10,),   Text("Emailid"),
+            TextField(
+              decoration: InputDecoration(
+                  hintText: "emailid"
+              ),
+
+            ),
+            SizedBox(height: 10,),   Text("Emailid"),
+            TextField(
+              decoration: InputDecoration(
+                  hintText: "emailid"
+              ),
+
+            ),
+            SizedBox(height: 10,),   Text("Emailid"),
+            TextField(
+              decoration: InputDecoration(
+                  hintText: "emailid"
+              ),
+
+            ),
+            SizedBox(height: 10,),   Text("Emailid"),
+            TextField(
+              decoration: InputDecoration(
+                  hintText: "emailid"
+              ),
+
+            ),
+            SizedBox(height: 10,),
 
           ],
         ),
