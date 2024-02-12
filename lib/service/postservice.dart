@@ -15,7 +15,7 @@ class PostApiService{
 
       ) async{
     var client=http.Client();
-    var apiUrl=Uri.parse("http://172.16.184.225:3001/users/signup");
+    var apiUrl=Uri.parse("http://localhost/users/signup");
 
     var response = await client.post(apiUrl,
         headers: <String,String>{
@@ -48,7 +48,7 @@ class PostApiService{
   }
   Future<List<Posts>> getPosts() async{
     var client =http.Client();
-    var apiUrl=Uri.parse("http://172.16.184.225:3001/users/view");
+    var apiUrl=Uri.parse("http://localhost/users/view");
     var response = await client.get(apiUrl);
     if(response.statusCode==200)
     {

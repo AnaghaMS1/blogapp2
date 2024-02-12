@@ -12,8 +12,6 @@ class signup extends StatefulWidget {
 class _signupState extends State<signup> {
   @override
 
-
-
   TextEditingController name =new TextEditingController();
   TextEditingController age=new TextEditingController();
   TextEditingController  address =new TextEditingController();
@@ -21,7 +19,6 @@ class _signupState extends State<signup> {
   TextEditingController  phoneno =new TextEditingController();
   TextEditingController  emailid =new TextEditingController();
   TextEditingController  password =new TextEditingController();
-
 
   void SendValuetoApi() async
   {
@@ -84,9 +81,6 @@ class _signupState extends State<signup> {
                   border: OutlineInputBorder()
               ),
             ),
-
-
-
 
             SizedBox(
               width: 250,
