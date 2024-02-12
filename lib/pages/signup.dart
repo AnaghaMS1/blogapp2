@@ -22,7 +22,8 @@ class _signupState extends State<signup> {
 
   void SendValuetoApi() async
   {
-    final response =await PostApiService().sendData(name.text, age.text, address.text, phoneno.text, pincode.text, emailid.text, password.text);
+    final response =await PostApiService().sendData(name.text, age.text,
+        address.text, phoneno.text, pincode.text, emailid.text, password.text);
     if (response["status"] == "success") {
 
       print("Successfully added");
