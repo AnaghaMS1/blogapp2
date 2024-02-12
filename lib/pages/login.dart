@@ -1,6 +1,7 @@
 import 'package:blogapp2/pages/signup.dart';
 import 'package:blogapp2/service/postservice.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class login extends StatefulWidget {
   const login({super.key});
@@ -20,15 +21,17 @@ class _loginState extends State<login> {
   {
     final response =await PostApiService().loginApi(emailid.text, password.text);
     if (response["status"] == "success") {
-
-      print("Login Successfully");
+      String userId=response["userdata"]["_id"].toString();
+      SharedPreferences preferences=await SharedPreferences.getInstance();
+      preferences.setString("userId", userId);
+      print("Login Successfully"+userId);
 
     }
     else if (response["status"] == "invalid user") {
-      print("invalid user ");
+      print("invalid user");
     }
     else{
-       print("Invalid Password")
+       print("Invalid Password");
     }
   }
 
@@ -42,7 +45,7 @@ class _loginState extends State<login> {
             TextField(
               decoration: InputDecoration(
                 labelText: "Emailid",
-                hintText: "emailid"
+                //hintText: "emailid"
               ),
 
             ),
@@ -51,7 +54,7 @@ class _loginState extends State<login> {
             TextField(
               decoration: InputDecoration(
                   labelText: "password",
-                  hintText: "password"
+                  //hintText: "password"
               ),
 
             ),
