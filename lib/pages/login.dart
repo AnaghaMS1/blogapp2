@@ -1,55 +1,40 @@
+import 'package:blogapp2/pages/signup.dart';
 import 'package:flutter/material.dart';
 
-class login extends StatefulWidget {
+class login extends StatelessWidget {
   const login({super.key});
 
   @override
-  State<login> createState() => _loginState();
-}
-
-class _loginState extends State<login> {
-  @override
-
-   TextEditingController emailid=new TextEditingController();
-  TextEditingController password=new TextEditingController();
-
-
-   void SendValuetoApi() async
-  {
-    final response =await PostApiService().sendData(bookName.text, authorName.text, publisherName.text);
-    if (response["status"] == "success") {
-
-      print("Successfully Login");
-
-    }
-    else{
-      print("error");
-    }
-  }
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: Container(
         child: Column(
           children: [
-            Text("Emailid"),
+            SizedBox(height: 10,),
             TextField(
               decoration: InputDecoration(
+                labelText: "Emailid",
                 hintText: "emailid"
               ),
 
             ),
             SizedBox(height: 10,),
-            Text("Password"),
+
             TextField(
               decoration: InputDecoration(
+                  labelText: "password",
                   hintText: "password"
               ),
 
             ),
-            ElevatedButton(onPressed: (){}, child: Text("Login")),
+            ElevatedButton(onPressed: (){
+              
+            }, child: Text("Login")),
             SizedBox(height: 10,),
-            ElevatedButton(onPressed: (){}, child: Text("Create new user"))
+            ElevatedButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>signup()));
+            }, child: Text("Create new user"))
 
           ],
         ),

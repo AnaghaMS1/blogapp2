@@ -1,3 +1,4 @@
+import 'package:blogapp2/pages/login.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,6 +9,8 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return login();
+    return MaterialApp(
+      home: login()
+    );
   }
 }
