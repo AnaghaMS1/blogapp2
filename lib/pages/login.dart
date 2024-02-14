@@ -1,3 +1,5 @@
+import 'dart:js_interop_unsafe';
+
 import 'package:blogapp2/pages/signup.dart';
 import 'package:blogapp2/service/postservice.dart';
 import 'package:flutter/material.dart';
@@ -13,22 +15,28 @@ class login extends StatefulWidget {
 class _loginState extends State<login> {
   @override
 
-  TextEditingController emailid =new TextEditingController();
+  String emailid="";
+  String password="";
 
-  TextEditingController password=new TextEditingController();
+  TextEditingController emailid1 =new TextEditingController();
+
+  TextEditingController password1=new TextEditingController();
 
   void SendValuetoApi() async
   {
-    final response =await PostApiService().loginApi(emailid.text, password.text);
-    if (response["status"] == "success") {
+
+    final response =await PostApiService().loginApi(emailid1.text, password1.text);
+    if(response["status"] == "invalid user"){
+      print("invalid user");
+    }
+   else if (response["status"] == "success") {
       String userId=response["userdata"]["_id"].toString();
+      print("Login Successfully"+userId);
+      SharedPreferences.setMockInitialValues({});
       SharedPreferences preferences=await SharedPreferences.getInstance();
       preferences.setString("userId", userId);
-      print("Login Successfully"+userId);
 
-    }
-    else if (response["status"] == "invalid user") {
-      print("invalid user");
+
     }
     else{
        print("Invalid Password");
