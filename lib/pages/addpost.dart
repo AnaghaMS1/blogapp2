@@ -13,13 +13,14 @@ class addpost extends StatefulWidget {
 class _addpostState extends State<addpost> {
   @override
 
-
-  //  SharedPreferences prefere=await SharedPreference.getProperty();
+  TextEditingController userid =new TextEditingController();
+  TextEditingController post =new TextEditingController();
+  // SharedPreferences prefere=await SharedPreference.getProperty();
 
   void SendValuetoApi() async
   {
     SharedPreferences prefere=await SharedPreferences.getInstance();
-    prefere.setString("userId", value),
+   // prefere.setString("userId", value),
     final response =await PostApiService1().PostAdd(userid.text, post.text);
     if (response["status"] == "success") {
 

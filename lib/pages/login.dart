@@ -1,5 +1,6 @@
 import 'dart:js_interop_unsafe';
 
+import 'package:blogapp2/pages/menu.dart';
 import 'package:blogapp2/pages/signup.dart';
 import 'package:blogapp2/service/postservice.dart';
 import 'package:flutter/material.dart';
@@ -66,7 +67,12 @@ class _loginState extends State<login> {
               ),
 
             ),
-            ElevatedButton(onPressed: SendValuetoApi, child: Text("Login")),
+            ElevatedButton(onPressed:(){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>menupage()));
+            },// SendValuetoApi,
+
+
+                child: Text("Login")),
             SizedBox(height: 10,),
             ElevatedButton(onPressed: (){
               Navigator.push(context, MaterialPageRoute(builder: (context)=>signup()));
